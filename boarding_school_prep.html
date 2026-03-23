@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>보딩스쿨 미팅 준비</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f13;
+      color: #e8e8f0;
+      line-height: 1.7;
+      padding: 0 0 60px;
+    }
+
+    /* Header */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 48px 24px 36px;
+      text-align: center;
+      border-bottom: 1px solid #ffffff10;
+    }
+    .hero-emoji { font-size: 48px; margin-bottom: 12px; }
+    .hero h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .hero p {
+      font-size: 14px;
+      color: #8888aa;
+    }
+
+    /* Keyword Card */
+    .keyword-section {
+      padding: 28px 20px 8px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #5e5e7a;
+      margin-bottom: 16px;
+    }
+    .keyword-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .keyword-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #1a1a2a;
+      border: 1px solid #2a2a3e;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .keyword-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .keyword-content strong {
+      display: block;
+      font-size: 15px;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+    .keyword-content span {
+      font-size: 13px;
+      color: #7777aa;
+    }
+
+    /* Script Sections */
+    .script-section {
+      padding: 28px 20px 0;
+    }
+    .script-card {
+      background: #1a1a2a;
+      border: 1px solid #2a2a3e;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .script-card-header {
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    .script-card-header:active {
+      background: #ffffff08;
+    }
+    .script-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .script-icon {
+      font-size: 20px;
+    }
+    .script-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .script-sub {
+      font-size: 12px;
+      color: #5e5e7a;
+      margin-top: 2px;
+    }
+    .chevron {
+      font-size: 12px;
+      color: #5e5e7a;
+      transition: transform 0.2s;
+    }
+    .script-card.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .script-body {
+      display: none;
+      padding: 0 20px 20px;
+    }
+    .script-card.open .script-body {
+      display: block;
+    }
+
+    /* Language tabs */
+    .lang-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .lang-tab {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid #2a2a3e;
+      color: #7777aa;
+      background: transparent;
+      transition: all 0.15s;
+    }
+    .lang-tab.active {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-color: transparent;
+      color: white;
+    }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+
+    .script-text {
+      font-size: 15px;
+      color: #c8c8e0;
+      line-height: 1.85;
+    }
+    .script-text p {
+      margin-bottom: 14px;
+    }
+    .script-text p:last-child { margin-bottom: 0; }
+
+    /* Tip section */
+    .tip-section {
+      padding: 28px 20px 0;
+    }
+    .tip-card {
+      background: linear-gradient(135deg, #1a2a1a, #1a2e1a);
+      border: 1px solid #2a4a2a;
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .tip-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 14px;
+      color: #aaccaa;
+    }
+    .tip-item:last-child { margin-bottom: 0; }
+    .tip-dot {
+      color: #4caf50;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Emergency phrase */
+    .emergency-section {
+      padding: 20px 20px 0;
+    }
+    .emergency-card {
+      background: linear-gradient(135deg, #2a1a1a, #2e1a1a);
+      border: 1px solid #4a2a2a;
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .emergency-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #cc6666;
+      margin-bottom: 12px;
+    }
+    .emergency-phrase {
+      font-size: 15px;
+      color: #f0c0c0;
+      font-style: italic;
+      background: #ffffff08;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border-left: 3px solid #cc6666;
+    }
+    .emergency-note {
+      font-size: 12px;
+      color: #885555;
+      margin-top: 10px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #ffffff08;
+      margin: 4px 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-emoji">✈️</div>
+    <h1>보딩스쿨 미팅 준비</h1>
+    <p>캐나다 입학 담당자 면접 스크립트</p>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keyword-section">
+    <div class="section-label">핵심 키워드 — 이것만 기억해</div>
+    <div class="keyword-grid">
+      <div class="keyword-item">
+        <div class="keyword-num">1</div>
+        <div class="keyword-content">
+          <strong>표현하는 사람</strong>
+          <span>나는 항상 표현해왔다</span>
+        </div>
+      </div>
+      <div class="keyword-item">
+        <div class="keyword-num">2</div>
+        <div class="keyword-content">
+          <strong>진화</strong>
+          <span>글 → 그림 → 노래 → 패션으로 바뀌었다</span>
+        </div>
+      </div>
+      <div class="keyword-item">
+        <div class="keyword-num">3</div>
+        <div class="keyword-content">
+          <strong>패션 × 경영 × 철학</strong>
+          <span>패션을 산업과 철학으로 읽고 싶다</span>
+        </div>
+      </div>
+      <div class="keyword-item">
+        <div class="keyword-num">4</div>
+        <div class="keyword-content">
+          <strong>캐나다는 내 곳</strong>
+          <span>엄마, 김연아, 스케이팅</span>
+        </div>
+      </div>
+      <div class="keyword-item">
+        <div class="keyword-num">5</div>
+        <div class="keyword-content">
+          <strong>성장할 준비</strong>
+          <span>구조 안에서 깊이 성장하고 싶다</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider" style="margin-top:28px;"></div>
+
+  <!-- Scripts -->
+  <div class="script-section">
+    <div class="section-label" style="padding:0 0 0 0; margin-bottom:16px; margin-top:28px;">스크립트</div>
+
+    <!-- 자기소개 -->
+    <div class="script-card" id="card1">
+      <div class="script-card-header" onclick="toggle('card1')">
+        <div class="script-title">
+          <span class="script-icon">👋</span>
+          <div>
+            <div class="script-name">자기소개</div>
+            <div class="script-sub">Who am I</div>
+          </div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="script-body">
+        <div class="lang-tabs">
+          <button class="lang-tab active" onclick="switchLang(this, 'intro', 'ko')">한국어</button>
+          <button class="lang-tab" onclick="switchLang(this, 'intro', 'en')">English</button>
+        </div>
+        <div class="lang-content active" id="intro-ko">
+          <div class="script-text">
+            <p>안녕하세요, 저는 [이름]이고 지금 중학교 3학년이에요.</p>
+            <p>저는 항상 표현하는 사람이었어요. 어릴 때는 일기장에 일기 대신 시를 쓰고, 성악 대회에 나가고, 그림 대회에서 상도 많이 받았어요. 표현하는 게 제 언어였어요.</p>
+            <p>커가면서 그 표현 방식이 바뀌었어요. 지금은 패션과 뷰티로 저를 표현해요. 매일 스스로 스타일링하고, 친구들이 저한테 스타일 조언을 구하러 와요. 저한테 패션은 단순히 옷이 아니라 정체성과 이야기예요.</p>
+            <p>그래서 비즈니스와 인문학을 공부하고 싶어요. 패션이 하나의 산업으로 어떻게 작동하는지, 브랜드 뒤에 어떤 철학이 있는지를 이해하고 싶어요.</p>
+            <p>저를 더 깊이 성장시켜줄 환경이 필요하다고 느껴요. 그리고 캐나다가 바로 그런 곳이라고 생각해요.</p>
+          </div>
+        </div>
+        <div class="lang-content" id="intro-en">
+          <div class="script-text">
+            <p>Hi, my name is [이름]. I'm in 9th grade in Seoul, Korea.</p>
+            <p>I've always been someone who expresses herself. When I was young, I wrote poems instead of diary entries, competed in vocal competitions, and won art prizes. Expression has always been my language.</p>
+            <p>As I grew up, that expression evolved. Today, I express myself through fashion and beauty. I style myself every day, and my friends come to me for styling advice. For me, fashion is not just about looks — it's about identity and storytelling.</p>
+            <p>That's why I want to study business and the humanities. I want to understand how fashion works as an industry — the branding, the philosophy behind it, the way it shapes culture.</p>
+            <p>I'm ready for an environment that challenges me to go deeper. And I believe Canada is exactly that place for me.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 왜 캐나다 -->
+    <div class="script-card" id="card2">
+      <div class="script-card-header" onclick="toggle('card2')">
+        <div class="script-title">
+          <span class="script-icon">🍁</span>
+          <div>
+            <div class="script-name">왜 캐나다인가</div>
+            <div class="script-sub">Why Canada</div>
+          </div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="script-body">
+        <div class="lang-tabs">
+          <button class="lang-tab active" onclick="switchLang(this, 'canada', 'ko')">한국어</button>
+          <button class="lang-tab" onclick="switchLang(this, 'canada', 'en')">English</button>
+        </div>
+        <div class="lang-content active" id="canada-ko">
+          <div class="script-text">
+            <p>캐나다는 저한테 낯선 곳이 아니에요.</p>
+            <p>엄마가 캐나다에서 공부하셨어요. 그래서 어릴 때부터 캐나다는 따뜻하고 열린 곳이라는 이야기를 들으며 자랐어요. 멀게 느껴진 적이 없어요.</p>
+            <p>그리고 저는 어릴 때부터 김연아 선수를 정말 좋아했어요. 단순히 스케이터가 아니라, 한계를 뛰어넘은 사람으로서요. 김연아 선수가 캐나다에서 훈련했는데, 캐나다가 그녀의 최고를 끌어낸 것 같았어요. 저도 어릴 때 스피드 스케이팅을 했고, 언젠가 캐나다에서 스케이트를 타고 싶다는 생각을 항상 했어요.</p>
+            <p>그래서 어디서 성장할지 생각했을 때 캐나다가 자연스러웠어요. 평생 마음속에 있던 곳이에요.</p>
+          </div>
+        </div>
+        <div class="lang-content" id="canada-en">
+          <div class="script-text">
+            <p>Canada has always felt close to me — not foreign at all.</p>
+            <p>My mom studied in Canada, so I grew up hearing about it as a warm and open place. It never felt like somewhere far away.</p>
+            <p>I also grew up watching Kim Yuna. She's someone I've admired deeply — not just as a skater, but as someone who pushed herself beyond limits. She trained in Canada, and I always felt that Canada brought out the best in her. I did speed skating when I was young, and I've always wanted to skate in Canada someday.</p>
+            <p>So when I thought about where to grow as a person, Canada felt natural. It's a place I've been drawn to my whole life.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 꿈과 진로 -->
+    <div class="script-card" id="card3">
+      <div class="script-card-header" onclick="toggle('card3')">
+        <div class="script-title">
+          <span class="script-icon">🌟</span>
+          <div>
+            <div class="script-name">꿈과 진로</div>
+            <div class="script-sub">Dreams & Goals</div>
+          </div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="script-body">
+        <div class="lang-tabs">
+          <button class="lang-tab active" onclick="switchLang(this, 'dream', 'ko')">한국어</button>
+          <button class="lang-tab" onclick="switchLang(this, 'dream', 'en')">English</button>
+        </div>
+        <div class="lang-content active" id="dream-ko">
+          <div class="script-text">
+            <p>패션과 비즈니스가 만나는 지점에서 일하고 싶어요. 디자이너보다는 브랜드의 정체성과 이야기를 만드는 사람이요.</p>
+            <p>철학이랑 글쓰기도 좋아해요. 패션이 사람들한테 문화적으로 어떤 의미인지, 어떻게 브랜드가 사람들이 믿는 무언가가 되는지를 생각해요. 그걸 만드는 사람이 되고 싶어요.</p>
+          </div>
+        </div>
+        <div class="lang-content" id="dream-en">
+          <div class="script-text">
+            <p>I want to work at the intersection of fashion and business — not as a designer, but as someone who shapes a brand's identity and story.</p>
+            <p>I love philosophy and writing too. I think about what fashion means to people culturally — how a brand becomes something people truly believe in. I want to be the person who creates that.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 약점 질문 -->
+    <div class="script-card" id="card4">
+      <div class="script-card-header" onclick="toggle('card4')">
+        <div class="script-title">
+          <span class="script-icon">💬</span>
+          <div>
+            <div class="script-name">약점 질문 대응</div>
+            <div class="script-sub">What do you want to improve?</div>
+          </div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="script-body">
+        <div class="lang-tabs">
+          <button class="lang-tab active" onclick="switchLang(this, 'weak', 'ko')">한국어</button>
+          <button class="lang-tab" onclick="switchLang(this, 'weak', 'en')">English</button>
+        </div>
+        <div class="lang-content active" id="weak-ko">
+          <div class="script-text">
+            <p>더 꾸준해지고 싶어요. 관심 있는 게 많고 깊이 빠져들기는 하는데, 끝까지 가지 못할 때가 있어요.</p>
+            <p>사실 그게 보딩스쿨에 끌리는 이유 중 하나예요. 구조, 커뮤니티, 헌신에 대한 기대. 그게 필요하다고 느끼고, 준비됐다고 생각해요.</p>
+          </div>
+        </div>
+        <div class="lang-content" id="weak-en">
+          <div class="script-text">
+            <p>I want to be more consistent. I have a lot of passions and I dive into things deeply, but I don't always follow through.</p>
+            <p>That's actually one reason boarding school appeals to me — the structure, the community, the expectation to commit. I think I need that, and I'm ready for it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Tips -->
+  <div class="tip-section">
+    <div class="section-label" style="margin-bottom:14px; margin-top:4px;">연습 팁</div>
+    <div class="tip-card">
+      <div class="tip-item">
+        <span class="tip-dot">✓</span>
+        <span>외우지 말고 키워드만 보고 자기 말로 풀기</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-dot">✓</span>
+        <span>김연아 얘기할 때 눈 빛나게 — 담당자들이 반응할 거야</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-dot">✓</span>
+        <span>긴장되면 천천히, 끊어서 — 유창함보다 진심이 중요해</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-dot">✓</span>
+        <span>소리 내어 2~3번 연습하기</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Emergency -->
+  <div class="emergency-section">
+    <div class="emergency-card">
+      <div class="emergency-label">영어로 막힐 때</div>
+      <div class="emergency-phrase">"I'm not sure how to say this exactly, but..."</div>
+      <div class="emergency-note">이 말 하고 계속 이어가면 돼. 멈추지 마.</div>
+    </div>
+  </div>
+
+  <script>
+    function toggle(id) {
+      const card = document.getElementById(id);
+      card.classList.toggle('open');
+    }
+
+    function switchLang(btn, section, lang) {
+      const tabs = btn.parentElement.querySelectorAll('.lang-tab');
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+
+      const contents = btn.closest('.script-body').querySelectorAll('.lang-content');
+      contents.forEach(c => c.classList.remove('active'));
+      document.getElementById(section + '-' + lang).classList.add('active');
+    }
+
+    // 첫 카드 자동으로 열기
+    document.getElementById('card1').classList.add('open');
+  </script>
+
+</body>
+</html>
