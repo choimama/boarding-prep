@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appleby College — Parent Interview</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f9f7f4;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+
+    header {
+      background: #1a2e4a;
+      color: #fff;
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: normal;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      opacity: 0.65;
+      letter-spacing: 0.06em;
+    }
+
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      margin: 28px auto 0;
+    }
+
+    .lang-toggle button {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      padding: 7px 22px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
+    }
+
+    .lang-toggle button:first-child {
+      border-radius: 4px 0 0 4px;
+      border-right: none;
+    }
+
+    .lang-toggle button:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+
+    .lang-toggle button.active {
+      background: rgba(255,255,255,0.18);
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* Alignment table */
+    .alignment {
+      background: #fff;
+      border: 1px solid #e0dbd3;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+
+    .alignment-title {
+      background: #1a2e4a;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .alignment table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+
+    .alignment th {
+      background: #f2ede8;
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: normal;
+      color: #666;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+
+    .alignment td {
+      padding: 10px 16px;
+      border-top: 1px solid #ece8e2;
+      vertical-align: top;
+    }
+
+    .alignment tr:hover td { background: #faf8f5; }
+
+    .check { color: #2e7d50; font-size: 1rem; }
+
+    /* Q&A */
+    .qa-item {
+      margin-bottom: 40px;
+      background: #fff;
+      border: 1px solid #e0dbd3;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .qa-question {
+      background: #f2ede8;
+      padding: 14px 20px;
+      font-size: 0.82rem;
+      color: #5a4e44;
+      letter-spacing: 0.03em;
+    }
+
+    .qa-question span {
+      color: #1a2e4a;
+      font-weight: bold;
+      margin-right: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+    }
+
+    .qa-answer {
+      padding: 20px 24px;
+      font-size: 0.97rem;
+    }
+
+    .qa-answer p {
+      margin-bottom: 8px;
+    }
+
+    .qa-answer p:last-child { margin-bottom: 0; }
+
+    /* lang display */
+    .lang-en { display: block; }
+    .lang-ko { display: none; }
+
+    body.ko .lang-en { display: none; }
+    body.ko .lang-ko { display: block; }
+
+    /* alignment table lang */
+    .align-en { display: table-cell; }
+    .align-ko { display: none; }
+
+    body.ko .align-en { display: none; }
+    body.ko .align-ko { display: table-cell; }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.78rem;
+      color: #aaa;
+      border-top: 1px solid #e8e3dc;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Appleby College — Parent Interview</h1>
+  <p>PARENT · MOTHER</p>
+  <div class="lang-toggle">
+    <button class="active" onclick="setLang('en')">English</button>
+    <button onclick="setLang('ko')">한국어</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Alignment Table -->
+  <div class="alignment">
+    <div class="alignment-title lang-en">Philosophy Alignment</div>
+    <div class="alignment-title lang-ko">교육 철학 일치 분석</div>
+    <table>
+      <thead>
+        <tr>
+          <th class="align-en">Theme</th>
+          <th class="align-ko">항목</th>
+          <th class="align-en">My Keywords</th>
+          <th class="align-ko">내 답변 키워드</th>
+          <th class="align-en">Appleby</th>
+          <th class="align-ko">Appleby 키워드</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="align-en">Learning Style</td>
+          <td class="align-ko">학습 방식</td>
+          <td class="align-en">Experiential · Inquiry · Intrinsic Motivation</td>
+          <td class="align-ko">경험형·탐구형·내적동기·지식 연결</td>
+          <td class="align-en">Inquiry-based · Experiential · Liberal Arts</td>
+          <td class="align-ko">Inquiry-based·Experiential·Liberal Arts</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Growth Goals</td>
+          <td class="align-ko">성장 목표</td>
+          <td class="align-en">Strengths-based · Authenticity · Social Contribution</td>
+          <td class="align-ko">강점 기반·자기다움 발현·사회 기여</td>
+          <td class="align-en">Leaders of Strong Character · Individual Passion</td>
+          <td class="align-ko">강한 인성의 리더·개인 열정 발견</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Co-curricular</td>
+          <td class="align-ko">과외활동</td>
+          <td class="align-en">Identity Exploration · Self-Expression</td>
+          <td class="align-ko">정체성 탐색·자기표현·자신의 색깔 찾기</td>
+          <td class="align-en">Arts · Athletics · Service — every term</td>
+          <td class="align-ko">Arts·Athletics·Service 균형 의무화</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Diversity</td>
+          <td class="align-ko">다양성</td>
+          <td class="align-en">Diversity within Family · Identity</td>
+          <td class="align-ko">가족 안의 다양성·정체성</td>
+          <td class="align-en">45+ Countries · Inclusive Community</td>
+          <td class="align-ko">45개국 글로벌 커뮤니티·포용</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Parent Role</td>
+          <td class="align-ko">부모 역할</td>
+          <td class="align-en">School–Parent Partnership · Open Communication</td>
+          <td class="align-ko">학교-부모 파트너십·자주 소통</td>
+          <td class="align-en">Parents Association · Collaboration</td>
+          <td class="align-ko">Parents Association·협력 강조</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Cultural Identity</td>
+          <td class="align-ko">문화적 정체성</td>
+          <td class="align-en">Maintaining Korean Identity</td>
+          <td class="align-ko">한국인 정체성 유지</td>
+          <td class="align-en">Cultural Respect · Lunar New Year Events</td>
+          <td class="align-ko">문화 다양성 존중·Lunar New Year 등 행사</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Service</td>
+          <td class="align-ko">커뮤니티 기여·봉사</td>
+          <td class="align-en">Family Community Roles · Spirit of Giving</td>
+          <td class="align-ko">대가족 공동체 안 역할·섬기는 자세</td>
+          <td class="align-en">100hrs Service Required · Social Contribution</td>
+          <td class="align-ko">100시간 Service 필수·사회 기여 핵심</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Global Mindset</td>
+          <td class="align-ko">글로벌 마인드</td>
+          <td class="align-en">Travel · Nature · Global Perspective</td>
+          <td class="align-ko">여행·자연 속 경험·글로벌 시각</td>
+          <td class="align-en">Global Service · Global Diploma · North Campus</td>
+          <td class="align-ko">해외봉사·글로벌 디플로마·북부캠퍼스</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Independence</td>
+          <td class="align-ko">자기 관리·독립심</td>
+          <td class="align-en">Excited (not anxious) About New Environments</td>
+          <td class="align-ko">보딩 적응 우려이나 기대감이 큰 아이로 긍정 프레이밍</td>
+          <td class="align-en">Self-discipline as Core Boarding Value</td>
+          <td class="align-ko">독립심·자기규율을 보딩의 핵심 가치로 봄</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Activity Depth</td>
+          <td class="align-ko">활동의 지속성</td>
+          <td class="align-en">Broad Exploration → Finding Her Own Color</td>
+          <td class="align-ko">다양한 탐색 후 자신의 색깔 찾기</td>
+          <td class="align-en">Diverse Activity Exploration Each Term</td>
+          <td class="align-ko">매 학기 다양한 활동 탐색 권장</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">School Trust</td>
+          <td class="align-ko">학교 시스템 신뢰</td>
+          <td class="align-en">Trust in Guidance System · School Partnership</td>
+          <td class="align-ko">Guidance 시스템 신뢰·학교와 협력</td>
+          <td class="align-en">Guidance System Actively Encouraged</td>
+          <td class="align-ko">Guidance 시스템 적극 활용 권장</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Communication</td>
+          <td class="align-ko">상담·소통 문화</td>
+          <td class="align-en">Safe Space for Emotional Expression</td>
+          <td class="align-ko">아이가 감정 표현할 수 있는 환경 신뢰</td>
+          <td class="align-en">Open Communication · Guidance Counsellor</td>
+          <td class="align-ko">개방적 소통·Guidance counsellor 강점</td>
+          <td class="check">✅</td>
+        </tr>
+        <tr>
+          <td class="align-en">Self-Expression</td>
+          <td class="align-ko">자기표현</td>
+          <td class="align-en">Stage → Fashion · Makeup — Instinct Is Consistent</td>
+          <td class="align-ko">무대→패션·화장으로 표현 방식 변화, 본능은 일관</td>
+          <td class="align-en">Arts · Creative Expression Emphasized</td>
+          <td class="align-ko">Arts·Creative expression 강조</td>
+          <td class="check">✅</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Q1 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q1</span>
+      <span class="lang-en">What led you to consider our school for your child's education?</span>
+      <span class="lang-ko">저희 학교를 고려하게 된 계기는 무엇인가요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>I studied in Canada for a period, and that gave me a real trust in Canada as a place where kids can grow up safely and well.</p>
+        <p>When I started looking for schools, Canada felt like the natural choice.</p>
+        <p>A trusted friend who had lived in Canada recommended Appleby — she said if she had stayed, she would have sent her own child here. That meant a lot to me, so honestly Appleby was already in my heart before I even did my research.</p>
+        <p>When I looked into it more, Oakville's safe and beautiful environment really put me at ease as a parent.</p>
+        <p>Appleby's mission — developing leaders of strong character — matched exactly what we believe in as a family.</p>
+        <p>The structure of Arts, Athletics, and Service every single term, and students from over 45 countries… I felt this was truly the right place for my child.</p>
+      </div>
+      <div class="lang-ko">
+        <p>잠깐 캐나다에서 공부했던 경험이 있어 캐나다는 안전한 환경에서 성장할 수 있는 국가라는 믿음이 있었음. 그래서 아이를 위한 학교를 캐나다에서 알아봤음.</p>
+        <p>캐나다 지인이 Appleby College를 적극 추천했음. 본인이 캐나다에 계속 있었으면 자녀를 보내고 싶다고 했고, 그 말이 큰 울림이 되었음.</p>
+        <p>이후 알아보던 중, 오크빌의 안전하고 아름다운 환경이 부모로서 마음이 놓였고, "강한 인성을 가진 리더"를 키운다는 미션이 우리 교육관과 일치한다고 느꼈음.</p>
+        <p>매 학기 Arts·Athletics·Service를 균형 있게 참여하는 구조와, 45개국 이상의 학생이 함께하는 보딩 커뮤니티가 이 아이에게 최적의 환경이라고 생각함.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q2</span>
+      <span class="lang-en">Can you share some specific goals you have for your child's education and personal development?</span>
+      <span class="lang-ko">자녀의 교육과 성장에 대해 어떤 목표를 갖고 계신가요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>More than anything, I want her to really know herself — to understand her own unique strengths and qualities, and be able to express them.</p>
+        <p>And to use those strengths to make a real difference for others and for society.</p>
+        <p>Appleby's mission — developing leaders of strong character who contribute to their communities and the world — is exactly what we hope for our daughter too.</p>
+      </div>
+      <div class="lang-ko">
+        <p>자기 자신을 잘 아는 사람. 자신의 고유한 성향과 강점을 인지하고 발현할 수 있는 사람.</p>
+        <p>그 강점을 기반으로 타인과 사회에 긍정적인 영향을 끼치는 사람으로 자라길 바람.</p>
+        <p>Appleby의 미션인 "강한 인성을 가진 리더로서 지역사회와 세계에 긍정적인 기여를 하는 사람"과 우리가 바라는 아이의 모습이 깊이 맞닿아 있다고 느낌.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q3</span>
+      <span class="lang-en">How would you describe your child's learning style and any specific educational needs they may have?</span>
+      <span class="lang-ko">자녀의 학습 스타일과 특별한 교육적 필요가 있다면 설명해주세요.</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>She's very much an internally motivated learner — external pressure doesn't work, but when something genuinely interests her, she goes really deep.</p>
+        <p>She learns best through direct experience and feeling things, not memorizing from a textbook.</p>
+        <p>She has a natural ability to connect what she's learned across different areas — she thinks in an integrated, liberal arts way.</p>
+        <p>And one thing that's always been consistent is her need to express herself — as a child it was through performing arts, and now it shows through fashion and makeup. The form has changed, but the instinct to express who she is has always been there.</p>
+      </div>
+      <div class="lang-ko">
+        <p>내적 동기 부여형, 경험형, 감각형. 교과서 암기보다 직접 경험하고 느끼며 배우는 스타일.</p>
+        <p>흥미와 내적 동기가 생기면 탐구의 깊이가 남다름 — 스스로 파고드는 힘이 강한 아이.</p>
+        <p>배운 것들을 서로 연결하는 능력이 있어, 다양한 분야를 통합적으로 사고하는 리버럴 아츠적 접근과 잘 맞음.</p>
+        <p>어릴 때부터 자기표현에 대한 본능이 강한 아이 — 어릴 때는 공연 예술로, 지금은 패션과 화장으로 표현 방식은 바뀌었지만 자신을 표현하고자 하는 본능은 변하지 않았음.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q4</span>
+      <span class="lang-en">What aspects of our school's curriculum or teaching philosophy align with your educational values?</span>
+      <span class="lang-ko">학교의 커리큘럼이나 교육 철학 중 공감하는 부분이 있나요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>Above all, Appleby's philosophy of discovering and nurturing each student's individual passion resonates so deeply with how I've tried to raise my daughter.</p>
+        <p>Finding a school that shares this exact belief felt genuinely exciting and reassuring.</p>
+        <p>The emphasis on inquiry-based and experiential learning is a perfect fit for how she actually learns — she needs to experience and explore, not just memorize.</p>
+        <p>The availability of specialized tracks like the Global Leadership Diploma, so students can go deep in their own direction, is also very appealing.</p>
+      </div>
+      <div class="lang-ko">
+        <p>"학생 개개인의 열정을 발견하고 지원한다"는 철학이 내가 아이를 양육해온 철학과 너무나 잘 맞닿아 있음. 그 철학을 가진 학교를 만나 반갑고 감사했음.</p>
+        <p>탐구형·경험형 학습을 강조하는 Appleby의 교육 철학이 우리 아이의 학습 스타일과 잘 맞는다고 생각함.</p>
+        <p>Global Leadership 디플로마처럼 학생이 자신의 방향성에 맞게 전문화할 수 있는 트랙이 있다는 점도 매력적임.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q5</span>
+      <span class="lang-en">Can you discuss your expectations for communication and involvement with teachers and school staff?</span>
+      <span class="lang-ko">교사 및 학교 스태프와의 소통에 대해 어떤 기대를 갖고 계신가요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>There's a saying I really believe in — "it takes a village to raise a child."</p>
+        <p>Trusted adults and peers beyond parents are so important for a child's growth.</p>
+        <p>I see the relationship between school and parents as a real partnership — built on shared values and frequent, open communication.</p>
+        <p>I'm really looking forward to working closely and collaboratively with Appleby's teachers and staff.</p>
+      </div>
+      <div class="lang-ko">
+        <p>"한 아이를 키우려면 온 마을이 필요하다." 부모 이외의 좋은 어른들과 또래 관계가 성장의 핵심이라고 믿음.</p>
+        <p>학교와 부모가 공통된 교육관으로 자주 소통하는 파트너 관계라고 생각함. 따라서 자주 소통하고 협력해야 함.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q6</span>
+      <span class="lang-en">How do you envision your child benefiting from the extracurricular activities offered at our school?</span>
+      <span class="lang-ko">학교의 과외 활동이 자녀에게 어떤 도움이 될 거라고 생각하시나요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>I really see Appleby's co-curricular programs as a space to draw out what's already inside her — her inner passions and identity.</p>
+        <p>She has always had a strong instinct for self-expression — as a child through vocal music, drama, and musical theatre, and now through fashion and makeup.</p>
+        <p>Appleby's Vocal, Drama, and Performing Arts programs mean she can reconnect with those roots.</p>
+        <p>The broadcasting and media club is a very natural continuation of her elementary school broadcasting experience.</p>
+        <p>Getting to skate again on Appleby's campus is also something she's genuinely excited about.</p>
+        <p>The structure of Athletics, Arts, and Service every term is exactly right for a child who has always grown by exploring many different things.</p>
+      </div>
+      <div class="lang-ko">
+        <p>Appleby의 과외 활동은 이 아이 안에 있는 것을 이끌어낼 수 있는 최적의 공간이 될 것이라 기대함.</p>
+        <p>어릴 때는 성악·드라마·뮤지컬로, 지금은 패션과 화장으로 — 표현의 형태는 달라졌지만 그 본능은 늘 있어왔음.</p>
+        <p>Vocal, Drama, Performing Arts 프로그램을 통해 그 뿌리와 다시 연결될 수 있을 것이라 기대됨. 방송·미디어 클럽도 자연스러운 연장선.</p>
+        <p>어릴 때 즐겼던 스케이팅을 캠퍼스에서 다시 시작할 수 있다는 점도 큰 기대 요소임.</p>
+        <p>매 학기 Athletics·Arts·Service를 균형 있게 참여하는 구조가, 다양한 경험을 통해 자신을 발견해온 이 아이에게 가장 잘 맞는 환경이라고 생각함.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q7</span>
+      <span class="lang-en">Are there any specific concerns or challenges you anticipate your child may face in our school environment?</span>
+      <span class="lang-ko">자녀가 학교 환경에서 어떤 어려움을 겪을 수 있다고 예상하시나요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>The biggest challenge will probably be self-management at the beginning — this is her first time living away from us.</p>
+        <p>She's always had parental support close by, so doing everything independently might feel unfamiliar at first.</p>
+        <p>But she's the kind of person who gets excited about new environments rather than anxious, so I believe she'll adapt well.</p>
+        <p>Having caring teachers around during that initial adjustment period will make a huge difference.</p>
+      </div>
+      <div class="lang-ko">
+        <p>부모와 떨어져 처음 경험하는 보딩 환경이기에, 초반 자기 관리가 가장 큰 도전이 될 것으로 예상.</p>
+        <p>하지만 새로운 환경에 대한 기대와 적응력이 있는 아이라 잘 해낼 것이라 믿음. 초반 적응 과정에서 선생님들의 관심이 큰 힘이 될 것.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q8</span>
+      <span class="lang-en">How do you support your child's education at home, and what role do you see for parents in our school community?</span>
+      <span class="lang-ko">가정에서 어떻게 교육을 지원하시나요? 학부모로서 어떤 역할을 하고 싶으신가요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>Everything starts at home — that's what I truly believe.</p>
+        <p>We've taught her about social life and responsibility within our extended family — navigating conflicts, following rules, being part of a community.</p>
+        <p>We also taught her the importance of contributing and serving — every New Year's Day, each child is given a role, so she naturally learns what it means to give back.</p>
+        <p>When she was younger, I focused on exposing her to lots of different experiences — vocal music, musical theatre, art, writing — to help her find her own strengths.</p>
+        <p>Now that she's a teenager, my role has shifted — rather than stepping in directly, I connect her with the right trusted adults who can guide her best.</p>
+        <p>As a parent, I see my role as keeping the big picture in mind and watching over her, while she grows through her own relationships and experiences.</p>
+        <p>In terms of my role in the school community, I'd love to be an active and present parent — genuinely partnering with teachers and staff, and supporting whatever the school needs from parents to help her thrive.</p>
+      </div>
+      <div class="lang-ko">
+        <p>가정교육이 모든 것의 기반이라고 생각함. 대가족 공동체 안에서 갈등과 규율을 배우며 사회화를 가르쳐왔음.</p>
+        <p>매년 1월 1일 아이들에게 역할을 부여하여, 가족이라는 작은 사회 안에서 섬기는 자세를 자연스럽게 익히게 함.</p>
+        <p>어린 시절엔 성악·뮤지컬·미술·글쓰기 등 다양한 경험을 통해 재능을 찾도록 지원. 틴에이저가 된 이후엔 직접 개입보다 잘 이끌어줄 수 있는 어른을 연결해주는 역할로 전환.</p>
+        <p>학교 커뮤니티에서는 선생님·스태프와 진정한 파트너로서, 아이의 성장을 위해 적극적으로 협력하는 역할을 하고자 함.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q9</span>
+      <span class="lang-en">Can you share any previous experiences you've had with private schools and what you appreciated about those experiences?</span>
+      <span class="lang-ko">이전 사립학교 경험이 있으시다면, 어떤 점이 좋았나요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>Both of my daughter's elementary and middle schools were private, while my other child went to public school — so I've directly compared the two.</p>
+        <p>What I'm most grateful for is this real sense that school and parents are raising the child together.</p>
+        <p>Three things I've appreciated most about private schools:</p>
+        <p>1. Consistent communication and guidelines based on the school's philosophy — it gives you a clear picture of the direction your child is growing in.</p>
+        <p>2. High level of individual attention from teachers — not just accommodating the child, but genuinely working together to find the best direction for her growth.</p>
+        <p>3. Relationships that continue even after graduation — teachers who walk alongside a child's growth over many years.</p>
+        <p>The variety of extracurricular activities also helped us discover her strengths — through the broadcasting club, vocal competitions, and speed skating, we found that she loves speaking, writing, singing, and skating.</p>
+      </div>
+      <div class="lang-ko">
+        <p>아이 초·중학교 모두 사립, 다른 자녀는 공립 — 직접 비교 경험 있음.</p>
+        <p>가장 감사한 점은 학교와 부모가 파트너가 되어 한 아이를 함께 성장시킨 경험과 믿음.</p>
+        <p>사립의 장점 세 가지: 1) 학교 철학 기반의 일관된 소통과 가이드라인. 2) 선생님들의 학생 개개인에 대한 높은 관심도 — 맞춰주는 게 아니라 함께 성장 방향을 잡아줌. 3) 졸업 후에도 관계 지속 — 긴 호흡으로 함께함.</p>
+        <p>방송부, 성악 경연대회, 스피드스케이팅 등을 통해 아이가 말하기·글쓰기·노래·스케이팅을 좋아한다는 것을 알게 되었음.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q10</span>
+      <span class="lang-en">How do you handle academic or behavioral challenges with your child, and what role do you see the school playing in such situations?</span>
+      <span class="lang-ko">학업이나 행동 문제가 생겼을 때 어떻게 대응하시나요? 학교의 역할은 어떻게 보시나요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>Whenever there's an issue, my first instinct is to look beneath the surface — is this really an academic problem, or is something going on emotionally?</p>
+        <p>If it's emotional, I create space for her to talk it through with me or another trusted adult. Once that's addressed, we work on the academic side with a teacher who's a good fit for her.</p>
+        <p>For behavioral issues, I try to understand where she's coming from emotionally, but I'm clear that feelings can't become attitude that affects others.</p>
+        <p>I'm really confident in Appleby's guidance and counselling system — the fact that students feel safe to openly express what they're going through is actually one of the reasons we chose this school.</p>
+        <p>When school and parents work together in the same direction, that's when a child grows the most.</p>
+      </div>
+      <div class="lang-ko">
+        <p>우선 표면적인 문제인지 아니면 마음의 문제인지 살펴봄. 마음의 문제일 경우 부모 및 믿는 어른과의 대화를 통해 근본 원인을 이야기함.</p>
+        <p>행동 문제의 경우 마음은 이해하지만 감정이 타인에게 영향을 미치는 태도가 되지 않도록 지도함.</p>
+        <p>Appleby의 강력한 guidance 시스템과 상담 문화를 신뢰하며, 아이가 자신의 감정을 자유롭게 표현할 수 있는 환경이 이 학교를 선택한 이유 중 하나임.</p>
+        <p>학교와 부모가 같은 방향을 보며 협력할 때 아이가 가장 잘 성장할 수 있다고 믿음.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q11</span>
+      <span class="lang-en">Are there any family traditions or cultural considerations that you would like us to be aware of?</span>
+      <span class="lang-ko">자녀 교육과 관련해 고려해야 할 가족 전통이나 문화적 요소가 있나요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>Nothing particularly special to flag, but we're a large, music-loving family — over 30 of us.</p>
+        <p>Every New Year's Day, we hold a family concert where grandparents, parents, and relatives all perform together — so being on a stage and expressing herself has just been a normal part of her life since she was very young.</p>
+        <p>We host Chuseok and New Year's Day at our home every year, and each child is given a role — they naturally learn what it means to contribute within a community.</p>
+        <p>Through that, she's learned to appreciate differences and work together with all kinds of people.</p>
+        <p>I hope she carries her Korean identity with her while also connecting with people from all kinds of backgrounds.</p>
+      </div>
+      <div class="lang-ko">
+        <p>음악을 사랑하는 30명이 넘는 대가족임. 매년 1월 1일 가족 음악회를 열어 조부모·부모·친척 모두가 각자의 재능을 펼침 — 이 아이에게 무대와 표현은 어릴 때부터 일상이었음.</p>
+        <p>설날·추석은 매년 우리 집에서 직접 챙기며 아이들에게 각자 역할을 부여 — 공동체 안에서 자기 역할을 배우게 함.</p>
+        <p>한국인 정체성을 유지하면서도 다양한 배경의 사람들과 어울릴 수 있는 사람으로 자라길 바람.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q12</span>
+      <span class="lang-en">How do you encourage a balance between academics and extracurricular activities in your child's life?</span>
+      <span class="lang-ko">학업과 과외 활동의 균형을 어떻게 잡아주시나요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>Extracurricular activities aren't a break from academics — they're the foundation, the place where she finds her identity and her color.</p>
+        <p>When she was younger, the focus was on exploring broadly — trying lots of different things to figure out what she loves.</p>
+        <p>What I've seen is that when she finds something she's genuinely passionate about, that naturally becomes the motivation to go deeper academically.</p>
+        <p>Appleby's structure — Athletics, Arts, and Service every term — matches this idea of broad exploration first, then gradually going deeper.</p>
+        <p>We believe in taking responsibility for what you commit to, but ultimately the goal is to find her own unique voice through a variety of experiences.</p>
+      </div>
+      <div class="lang-ko">
+        <p>과외 활동은 정체성과 삶의 풍요로움의 기반 — 자신의 색깔을 찾기 위해 매우 중요하다고 생각함. 그 기반 위에서 학업이 이어져야 함.</p>
+        <p>탐색을 통해 발견한 관심과 재능이 학업의 동기부여로 이어진다고 믿음.</p>
+        <p>Appleby의 매 학기 Athletics·Arts·Service 구조가, 넓은 탐색 후 점차 깊이를 더해가는 이 아이의 성장 방식과 잘 맞는다고 생각함.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q13</span>
+      <span class="lang-en">What role do you believe technology should play in your child's education, and how do you manage screen time at home?</span>
+      <span class="lang-ko">기술과 스크린 타임에 대해 어떤 생각을 갖고 계신가요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>Technology, when used well, can really help kids learn more efficiently — self-management tools, reviewing mistakes, these are so much easier with technology.</p>
+        <p>But relying too heavily on AI at too young an age can get in the way of developing independent thinking and finding your own voice.</p>
+        <p>My hope is that during the teenage years, she learns to use technology as a tool without becoming overly dependent on it.</p>
+        <p>In terms of screen time — she got her first smartphone in fifth grade, and we've managed it consistently ever since. Age-appropriate content restrictions, a set daily limit, and at bedtime everything except essential apps is blocked.</p>
+      </div>
+      <div class="lang-ko">
+        <p>기술은 막는 게 아니라 잘 활용해야 하는 것. 자기 관리 도구 및 오답 정리 등에서 기술의 도움을 적극 활용할 수 있음.</p>
+        <p>다만 너무 이른 시기에 AI에 의존하면 생각하는 힘과 자기만의 색깔을 찾는 데 허들이 될 수 있어, 청소년기에는 과의존하지 않도록 지도하고 있음.</p>
+        <p>5학년 첫 스마트폰 이후 스크린 타임을 일관되게 관리 중 — 연령 맞춤 콘텐츠 제한, 일일 사용 시간 설정, 취침 시 필수 앱 외 차단.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q14</span>
+      <span class="lang-en">Can you discuss your expectations regarding homework and your involvement in your child's assignments?</span>
+      <span class="lang-ko">숙제와 학업 지원에 대해 어떤 기대를 갖고 계신가요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>Homework is essential — it's how you build study habits and make knowledge truly your own.</p>
+        <p>One thing I've always emphasized is consistency — rather than cramming, I've encouraged her to break things down and do a little bit every day.</p>
+        <p>My approach is to encourage her to work through things independently first. When she hits a real wall, the best thing is to use the school's teachers and guidance system rather than having me step in and solve it.</p>
+        <p>My role as a parent is checking in on how she's doing overall and staying in close communication with the school.</p>
+      </div>
+      <div class="lang-ko">
+        <p>숙제는 공부 습관을 형성하고 지식을 내면화하는 데 꼭 필요하다고 생각함.</p>
+        <p>몰아서 하기보다 매일 조금씩 나눠서 꾸준히 하는 습관을 들이도록 지도해왔음.</p>
+        <p>어려움이 생길 경우 학교의 선생님과 guidance 시스템을 적극적으로 활용하는 것이 가장 바람직하며, 부모는 아이의 상태를 살피고 학교와 소통하는 역할을 하고자 함.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q15</span>
+      <span class="lang-en">How do you address and promote diversity and inclusion within your family, and how do you hope the school will contribute to this?</span>
+      <span class="lang-ko">가정에서 다양성과 포용을 어떻게 가르치시나요? 학교에 기대하는 바는요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>Diversity isn't something you learn from a textbook — it's something you live.</p>
+        <p>It starts with knowing yourself, and then recognizing and respecting that others are different.</p>
+        <p>She's grown up in a big extended family — over 30 people — with siblings and cousins of different personalities and genders. Through big and small conflicts and reconciliations, she's naturally learned how to accept differences and find common ground.</p>
+        <p>Our extended family includes people from all over Korea, as well as family members living in the US, Canada, and the UK, with different nationalities and backgrounds — so diversity has genuinely just been part of everyday life.</p>
+        <p>I'm really hoping that at Appleby, she gets to expand that further — meeting people from even more diverse backgrounds and broadening her perspective.</p>
+        <p>I believe that kind of environment will make her own identity stronger, while also helping her genuinely appreciate others.</p>
+      </div>
+      <div class="lang-ko">
+        <p>다양성은 개념이 아니라 일상에서 배우는 것이라고 생각함. 자신을 잘 알고, 타인과의 다름을 인정하는 것에서부터 시작된다고 믿음.</p>
+        <p>형제자매가 많은 대가족 안에서 성별과 성향의 차이를 자연스럽게 경험해왔음. 사촌·동생들과의 갈등과 화해 속에서 다름을 인정하고 맞춰나가는 법을 몸으로 익혀왔음.</p>
+        <p>대가족 안에 미국·캐나다·영국에 사는 가족, 다른 국적과 인종을 가진 가족도 있어 다양성이 이미 일상 안에 있음.</p>
+        <p>보딩스쿨에서 더 다양한 배경의 친구들을 만나며 관점을 넓혀나가길 기대함. 그 환경 속에서 본인의 정체성은 더욱 단단해지고, 타인을 진심으로 인정하는 사람으로 성장하길 바람.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q16</span>
+      <span class="lang-en">Are there any specific health or medical considerations that we should be aware of for your child?</span>
+      <span class="lang-ko">자녀의 건강이나 의료적으로 알려야 할 사항이 있나요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>No, nothing to flag — she's in good health with no specific medical considerations.</p>
+      </div>
+      <div class="lang-ko">
+        <p>특이사항 없음.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q17</span>
+      <span class="lang-en">How do you handle and support your child during times of transition or change, such as starting at a new school?</span>
+      <span class="lang-ko">전학 등 변화와 전환 시기에 아이를 어떻게 지원하시나요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>I really believe that when parents genuinely trust a school and express that openly in front of their child, it makes a huge difference in how she adapts.</p>
+        <p>Every school she's attended has been a place I trusted completely — her current middle school is one I had my eye on since she was a toddler. When she sees that her parents truly believe in where she's being sent, she starts with security and excitement rather than anxiety.</p>
+        <p>That said, transitions are still hard, and it's okay for things to feel unfamiliar at first. What helps most isn't solving the problem for her — it's listening and helping her feel settled emotionally.</p>
+        <p>Going through those moments repeatedly is actually what builds resilience.</p>
+        <p>She's the kind of person who faces change with more excitement than fear, so I have every confidence she'll handle this transition well.</p>
+      </div>
+      <div class="lang-ko">
+        <p>부모가 학교에 대한 신뢰를 갖고 아이 앞에서 충분히 표현하는 것이 아이의 적응에 매우 중요하다고 생각함.</p>
+        <p>지금까지 보낸 학교는 모두 부모인 내가 무한 신뢰하는 곳이었고, 아이의 현재 중학교는 토들러 시절부터 보내고자 정했던 곳임.</p>
+        <p>전환기에 힘들어할 때, 건건이 해결해주기보다 이야기를 들어주고 마음을 안정시켜주는 것이 가장 중요하다고 생각함. 그러한 반복되는 경험이 아이를 성장시킴.</p>
+        <p>변화 앞에서 불안해하기보다 기대가 큰 아이라 이번 전환도 잘 해낼 것이라 믿음.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q18</span>
+      <span class="lang-en">What are your thoughts on parent involvement in school events and activities, and how do you envision your participation?</span>
+      <span class="lang-ko">학교 행사 참여에 대해 어떤 생각이신가요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>School and family are partners in raising a child together — so being involved feels natural and important to me.</p>
+        <p>School is one of the most important windows into who my daughter really is.</p>
+        <p>I've never missed a school event until now, and even with the distance, I fully intend to be there in person for the important ones at Appleby.</p>
+        <p>It matters to her that she feels her parents are paying attention. And for me, staying connected to the school community is part of how I support her growth.</p>
+      </div>
+      <div class="lang-ko">
+        <p>학교와 가정은 아이의 성장을 위한 동반 파트너임. 학교 활동에 참여하는 것은 한 아이를 키우기 위해 중요한 요소라고 생각함.</p>
+        <p>지금까지 학교 행사에 빠짐없이 참여해왔음. 보딩스쿨 진학 후에도 거리에 관계없이 중요한 행사엔 직접 참여할 생각.</p>
+        <p>아이가 부모의 관심을 느끼는 것도 중요하고, 부모 입장에서도 중요한 성장 파트너인 학교와 협력하는 것이 아이의 성장을 위해 매우 중요하다고 생각함.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q19</span>
+      <span class="lang-en">How do you foster a love for learning and curiosity in your child outside of the formal school environment?</span>
+      <span class="lang-ko">학교 밖에서 배움에 대한 호기심을 어떻게 길러주시나요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>Loving learning is something you carry with you for life — I truly believe that.</p>
+        <p>For her, I've tried to nurture a global perspective through travel to different countries and direct experiences in the world.</p>
+        <p>Beyond books and museums, I've tried to help her see that learning happens everywhere — in nature, in conversations with grandparents, in the stories of our family history.</p>
+        <p>Personally, I love learning new things and adapting — and I think a lot of that comes from my father, who has never stopped learning even now. Watching him explore new things throughout my childhood just naturally rubbed off on me.</p>
+        <p>The most powerful thing I can do is model it — to live a life where I'm genuinely curious and growing, and let her see that.</p>
+      </div>
+      <div class="lang-ko">
+        <p>배움을 사랑하는 것은 평생 가져가야 할 덕목이라고 생각함.</p>
+        <p>다양한 나라 여행과 직접 경험을 통해 글로벌한 시각을 자연스럽게 길러주려 노력해왔음. 책과 박물관은 물론, 자연 속 경험과 조부모님과의 대화를 통해 배움이 교실 밖에도 있다는 것을 느끼게 해주고자 했음.</p>
+        <p>부모로서 나 스스로도 배움의 끈을 놓지 않으시는 아버지께 큰 영향을 받았음. 스스로 배우고 성장하는 삶을 직접 보여주려고 노력하고 있음.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="qa-item">
+    <div class="qa-question"><span>Q20</span>
+      <span class="lang-en">Can you share any specific examples of how you have worked collaboratively with teachers or school administrators in the past?</span>
+      <span class="lang-ko">과거에 교사나 학교 관계자와 협력했던 경험이 있으신가요?</span>
+    </div>
+    <div class="qa-answer">
+      <div class="lang-en">
+        <p>When my daughter was in elementary school, there was a musical production — I volunteered as the snack coordinator during all the rehearsals.</p>
+        <p>In middle school, I joined the school lunch committee — inspecting food ingredients and tasting the meals.</p>
+        <p>I also helped as a test supervisor during midterm and final exams, assisting the teachers.</p>
+        <p>Being directly involved in school life is the best way to really understand the community and stay connected.</p>
+      </div>
+      <div class="lang-ko">
+        <p>초등학교 때 뮤지컬 공연 연습 기간 동안 간식 담당으로 아이들을 지원하는 역할을 하였음.</p>
+        <p>중학교 진학 후에는 급식위원으로 식자재 검수·급식 시식 활동에 참여하였고, 시험감독으로 중간·기말고사 선생님 보조 역할도 하였음.</p>
+        <p>학교 활동에 직접 참여하며 소통해온 경험 있음.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Appleby College · Parent Interview Preparation</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.classList.toggle('ko', lang === 'ko');
+    document.querySelectorAll('.lang-toggle button').forEach((btn, i) => {
+      btn.classList.toggle('active', (lang === 'en' && i === 0) || (lang === 'ko' && i === 1));
+    });
+  }
+</script>
+
+</body>
+</html>
