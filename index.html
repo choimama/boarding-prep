@@ -164,6 +164,42 @@
     body.ko .align-en { display: none; }
     body.ko .align-ko { display: table-cell; }
 
+    /* Tabs */
+    .tab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: 32px 0 0;
+    }
+
+    .tab-nav button {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      padding: 8px 28px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      font-family: 'Arial', sans-serif;
+      transition: background 0.2s;
+    }
+
+    .tab-nav button:first-child {
+      border-radius: 4px 0 0 4px;
+      border-right: none;
+    }
+
+    .tab-nav button:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+
+    .tab-nav button.active {
+      background: rgba(255,255,255,0.18);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
     footer {
       text-align: center;
       padding: 24px;
@@ -182,11 +218,22 @@
     <button class="active" onclick="setLang('en')">English</button>
     <button onclick="setLang('ko')">한국어</button>
   </div>
+  <div class="tab-nav">
+    <button class="active" onclick="setTab('qa')">
+      <span class="lang-en">Interview Q&amp;A</span>
+      <span class="lang-ko">인터뷰 Q&amp;A</span>
+    </button>
+    <button onclick="setTab('alignment')">
+      <span class="lang-en">Philosophy Alignment</span>
+      <span class="lang-ko">철학 일치 분석</span>
+    </button>
+  </div>
 </header>
 
 <div class="container">
 
-  <!-- Alignment Table -->
+  <!-- Philosophy Alignment Tab -->
+  <div id="tab-alignment" class="tab-panel">
   <div class="alignment">
     <div class="alignment-title lang-en">Philosophy Alignment</div>
     <div class="alignment-title lang-ko">교육 철학 일치 분석</div>
@@ -323,6 +370,10 @@
       </tbody>
     </table>
   </div>
+  </div><!-- /tab-alignment -->
+
+  <!-- Q&A Tab -->
+  <div id="tab-qa" class="tab-panel active">
 
   <!-- Q1 -->
   <div class="qa-item">
@@ -762,6 +813,8 @@
     </div>
   </div>
 
+  </div><!-- /tab-qa -->
+
 </div>
 
 <footer>Appleby College · Parent Interview Preparation</footer>
@@ -771,6 +824,14 @@
     document.body.classList.toggle('ko', lang === 'ko');
     document.querySelectorAll('.lang-toggle button').forEach((btn, i) => {
       btn.classList.toggle('active', (lang === 'en' && i === 0) || (lang === 'ko' && i === 1));
+    });
+  }
+
+  function setTab(tab) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.querySelectorAll('.tab-nav button').forEach((btn, i) => {
+      btn.classList.toggle('active', (tab === 'qa' && i === 0) || (tab === 'alignment' && i === 1));
     });
   }
 </script>
